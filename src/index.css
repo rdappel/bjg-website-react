@@ -1,0 +1,22 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--top-nav-height: 60px;
+	--hero-height: 60vh;
+	--page-width: 1400px;
+}
+
+html {
+	margin: 0;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, sans-serif;
+	color: white;
+	background-color: black;
+}

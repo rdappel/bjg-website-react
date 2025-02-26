@@ -1,0 +1,18 @@
+
+.gradient-button {
+	font-size: 1.2em;
+	margin: 20px;
+	padding: 15px 45px;
+	text-align: center;
+	transition: 0.5s;
+	color: black;
+	border: 0;
+	border-radius: 10px;
+	display: block;
+	background-image: linear-gradient(to right, #00a1e6 0%, #59b136 100%);
+	cursor: pointer;
+}
+
+.gradient-button:hover {
+	transform: scale(1.1);
+}

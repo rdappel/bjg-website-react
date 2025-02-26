@@ -1,0 +1,21 @@
+#about {
+	text-align: center;
+	padding: 40px;
+}
+
+#about img {
+	width: min(100%, 600px);
+	padding: 20px;
+	border-radius: 2rem;
+}
+
+#about p {
+	font-size: 1.2rem;
+	line-height: 1.5;
+	padding: 20px;
+	display: block;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	text-align: justify;
+}

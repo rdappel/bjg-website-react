@@ -1,0 +1,47 @@
+
+#games .game {
+	padding: 20px;
+	color: black;
+}
+
+#games .game img {
+	width: 50%;
+	aspect-ratio: initial;
+	object-fit: cover;
+	border: 1px solid white;
+	border-radius: 1rem;
+	float: left;
+	margin: 0 20px 20px 0;
+}
+
+#games .game:nth-child(odd) img {
+	float: right;
+	margin: 0 0 20px 20px;
+}
+
+#games .game h2 {
+	font-size: 2rem;
+	margin-bottom: 10px;
+}
+
+#games .game p {
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+#games button {
+	clear: both;
+	margin: 20px auto;
+}
+
+@media screen and (max-width: 1000px) {
+	#games .game img {
+		width: 100%;
+		float: none;
+		display: block;
+	}
+
+	#games .game h2 {
+		display: none;
+	}
+}
