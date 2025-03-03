@@ -4,7 +4,7 @@ import './News.css'
 
 const Item = ({ title, created, children }) => {
 	return (
-		<article>
+		<article className="auto-show">
 			<h1>{title}</h1>
 			<h2>{created}</h2>
 			{ children }

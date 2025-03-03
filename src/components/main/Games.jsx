@@ -6,7 +6,7 @@ import GradientButton from '../GradientButton'
 
 const Game = ({ title, imageUrl, children }) => {
 	return (
-		<div className="game">
+		<div className="game auto-show">
 			<img src={imageUrl} alt={title} />
 			<h2>{title}</h2>
 			{children}

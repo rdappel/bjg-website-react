@@ -1,4 +1,6 @@
 
+import { useEffect } from 'react'
+
 import './App.css'
 
 import Background from './components/Background'
@@ -18,6 +20,23 @@ const App = () => {
 		heroContent.style.opacity = 1 - window.scrollY / 400
 		heroContent.style.transform = `translateY(-${window.scrollY / 2}px)`
 	})
+
+	useEffect(() => {
+
+		const observer = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("visible")
+				}
+			})
+		}, { threshold: 0.3 })
+
+        const elements = document.querySelectorAll(".auto-show")
+        elements.forEach(el => observer.observe(el))
+
+        return () => observer.disconnect()
+	}, [ ])
+
 
 	console.log('render')
 
