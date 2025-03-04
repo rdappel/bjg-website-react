@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import './App.css'
 
@@ -21,24 +21,30 @@ const App = () => {
 		heroContent.style.transform = `translateY(-${window.scrollY / 2}px)`
 	})
 
-	useEffect(() => {
+	const [ gamesLoaded, setGamesLoaded ] = useState(false)
+	const [ newsLoaded, setNewsLoaded ] = useState(false)
+	const observerRef = useRef(null)
 
-		const observer = new IntersectionObserver(entries => {
+	useEffect(() => {
+		observerRef.current = new IntersectionObserver(entries => {
 			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add("visible")
-				}
+				if (!entry.isIntersecting) return
+				entry.target.classList.add('visible')
 			})
 		}, { threshold: 0.3 })
 
-        const elements = document.querySelectorAll(".auto-show")
-        elements.forEach(el => observer.observe(el))
 
-        return () => observer.disconnect()
+        return () => observerRef.current.disconnect()
 	}, [ ])
 
+	useEffect(() => {
+		if (!gamesLoaded || !newsLoaded) return
 
-	console.log('render')
+		console.log('linking observer')
+		const elements = document.querySelectorAll('.auto-show')
+		elements.forEach(element => observerRef.current.observe(element))
+	}, [ gamesLoaded, newsLoaded ])
+
 
 	return (
 		<>
@@ -48,8 +54,8 @@ const App = () => {
 				<div id="page">
 					<Header />
 					<main>
-						<Games />
-						<News />
+						<Games setGamesLoaded={setGamesLoaded} />
+						<News setNewsLoaded={setNewsLoaded} />
 						<About />
 						<Contact />
 					</main>
